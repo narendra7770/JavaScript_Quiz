@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Alltechinfo_Quiz</title>
+    <!-- jquery for maximum compatibility -->
+    <!-- 
+    This is made by Alltechinfo_Quiz
+    Date:- 12/10/2020
+    Copyright:- Alltechinfo_Quiz
+    www.alltechinfon.xyz 
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    
+
+    var quiztitle = "Quiz Title";
+
+    
+    var quiz = [
+        
+        
+        {
+            "question"      :   "Q1: Dog : Rabies : : Mosquito : ? ",
+            "image"         :   "data:image/jpeg;base64,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",
+            "choices"       :   [
+                                    "(a)Plague",
+                                    "(b)Death",
+                                    "(c)Malaria",
+                                    "(d)Sting"
+                                ],
+            "correct"       :   "(c)Malaria",
+            "explanation"   :   "Exp: The bite of the first causes the second.",
+        },
+
+
+
+
+
+        {
+            "question"      :   "Q2:",
+            "image"         :   "",
+            "choices"       :   [
+                                    "",
+                                    "",
+                                    "",
+                                    ""
+                                ],
+            "correct"       :   "",
+            "explanation"   :   "",
+        },
+
+
+
+
+
+        {
+            "question"      :   "Q3: ",
+            "image"         :   "",
+            "choices"       :   [
+                                    "",
+                                    "",
+                                    "",
+                                    ""
+                                ],
+            "correct"       :   "",
+            "explanation"   :   "",
+        },
+
+
+
+
+        {
+            "question"      :   "Q4:",
+            "image"         :   "",
+            "choices"       :   [
+                                    "",
+                                    "",
+                                    "",
+                                    ""
+                                ],
+            "correct"       :   "",
+            "explanation"   :   "",
+        },
+
+
+        {
+            "question"      :   "Q5:",
+            "image"         :   "",
+            "choices"       :   [
+                                    "",
+                                    "",
+                                    "",
+                                    ""
+                                ],
+            "correct"       :   "",
+            "explanation"   :   "",
+        },
+
+
+
+        {
+            "question"      :   "Q6: ",
+            "image"         :   "",
+            "choices"       :   [
+                                    "",
+                                    "",
+                                    "",
+                                    ""
+                                ],
+            "correct"       :   "",
+            "explanation"   :   "",
+        },
+
+
+
+        {
+            "question"      :   "Q7: ",
+            "image"         :   "",
+            "choices"       :   [
+                                    "",
+                                    "",
+                                    "",
+                                    ""
+                                ],
+            "correct"       :   "",
+            "explanation"   :   "",
+        },
+
+
+
+        {
+            "question"      :   "Q8: ",
+            "image"         :   "",
+            "choices"       :   [
+                                    "",
+                                    "",
+                                    "",
+                                    ""
+                                ],
+            "correct"       :   "",
+            "explanation"   :   "",
+        },
+
+
+        {
+            "question"      :   "Q9: ",
+            "image"         :   "",
+            "choices"       :   [
+                                    "",
+                                    "",
+                                    "",
+                                    ""
+                                ],
+            "correct"       :   "",
+            "explanation"   :   "",
+        },
+
+
+
+        {
+            "question"      :   "Q10: ",
+            "image"         :   "",
+            "choices"       :   [
+                                    "",
+                                    "",
+                                    "",
+                                    ""
+                                ],
+            "correct"       :   "",
+            "explanation"   :   "",
+        },
+
+
+
+
+    ];
+
+
+
+
+
+
+
+    /******* No need to edit below this line *********/
+    var currentquestion = 0, score = 0, submt=true, picked;
+
+    jQuery(document).ready(function($){
+
+        /**
+         * HTML Encoding function for alt tags and attributes to prevent messy
+         * data appearing inside tag attributes.
+         */
+        function htmlEncode(value){
+          return $(document.createElement('div')).text(value).html();
+        }
+
+        /**
+         * This will add the individual choices for each question to the ul#choice-block
+         *
+         * @param {choices} array The choices from each question
+         */
+        function addChoices(choices){
+            if(typeof choices !== "undefined" && $.type(choices) == "array"){
+                $('#choice-block').empty();
+                for(var i=0;i<choices.length; i++){
+                    $(document.createElement('li')).addClass('choice choice-box').attr('data-index', i).text(choices[i]).appendTo('#choice-block');                    
+                }
+            }
+        }
+        
+        /**
+         * Resets all of the fields to prepare for next question
+         */
+        function nextQuestion(){
+            submt = true;
+            $('#explanation').empty();
+            $('#question').text(quiz[currentquestion]['question']);
+            $('#pager').text('Question ' + Number(currentquestion + 1) + ' of ' + quiz.length);
+            if(quiz[currentquestion].hasOwnProperty('image') && quiz[currentquestion]['image'] != ""){
+                if($('#question-image').length == 0){
+                    $(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[currentquestion]['image']).attr('alt', htmlEncode(quiz[currentquestion]['question'])).insertAfter('#question');
+                } else {
+                    $('#question-image').attr('src', quiz[currentquestion]['image']).attr('alt', htmlEncode(quiz[currentquestion]['question']));
+                }
+            } else {
+                $('#question-image').remove();
+            }
+            addChoices(quiz[currentquestion]['choices']);
+            setupButtons();
+        }
+
+        /**
+         * After a selection is submitted, checks if its the right answer
+         *
+         * @param {choice} number The li zero-based index of the choice picked
+         */
+        function processQuestion(choice){
+            if(quiz[currentquestion]['choices'][choice] == quiz[currentquestion]['correct']){
+                $('.choice').eq(choice).css({'background-color':'#50D943'});
+                $('#explanation').html('<strong>Correct!</strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
+                score++;
+            } else {
+                $('.choice').eq(choice).css({'background-color':'#D92623'});
+                $('#explanation').html('<strong>Incorrect.</strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
+            }
+            currentquestion++;
+            $('#submitbutton').html('NEXT QUESTION &raquo;').on('click', function(){
+                if(currentquestion == quiz.length){
+                    endQuiz();
+                } else {
+                    $(this).text('Check Answer').css({'color':'#222'}).off('click');
+                    nextQuestion();
+                }
+            })
+        }
+
+        
+        function setupButtons(){
+            $('.choice').on('mouseover', function(){
+                $(this).css({'background-color':'#e1e1e1'});
+            });
+            $('.choice').on('mouseout', function(){
+                $(this).css({'background-color':'#fff'});
+            })
+            $('.choice').on('click', function(){
+                picked = $(this).attr('data-index');
+                $('.choice').removeAttr('style').off('mouseout mouseover');
+                $(this).css({'border-color':'#222','font-weight':700,'background-color':'#c1c1c1'});
+                if(submt){
+                    submt=false;
+                    $('#submitbutton').css({'color':'#000'}).on('click', function(){
+                        $('.choice').off('click');
+                        $(this).off('click');
+                        processQuestion(picked);
+                    });
+                }
+            })
+        }
+        
+        /**
+         * Quiz ends, display a message.
+         */
+        function endQuiz(){
+            $('#explanation').empty();
+            $('#question').empty();
+            $('#choice-block').empty();
+            $('#submitbutton').remove();
+            $('#question').text("You got " + score + " out of " + quiz.length + " correct.");
+            $(document.createElement('h2')).css({'text-align':'center', 'font-size':'4em'}).text(Math.round(score/quiz.length * 100) + '%').insertAfter('#question');
+        }
+
+        /**
+         * Runs the first time and creates all of the elements for the quiz
+         */
+        function init(){
+            //add title
+            if(typeof quiztitle !== "undefined" && $.type(quiztitle) === "string"){
+                $(document.createElement('h1')).text(quiztitle).appendTo('#frame');
+            } else {
+                $(document.createElement('h1')).text("Quiz").appendTo('#frame');
+            }
+
+            //add pager and questions
+            if(typeof quiz !== "undefined" && $.type(quiz) === "array"){
+                //add pager
+                $(document.createElement('p')).addClass('pager').attr('id','pager').text('Question 1 of ' + quiz.length).appendTo('#frame');
+                //add first question
+                $(document.createElement('h2')).addClass('question').attr('id', 'question').text(quiz[0]['question']).appendTo('#frame');
+                //add image if present
+                if(quiz[0].hasOwnProperty('image') && quiz[0]['image'] != ""){
+                    $(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[0]['image']).attr('alt', htmlEncode(quiz[0]['question'])).appendTo('#frame');
+                }
+                $(document.createElement('p')).addClass('explanation').attr('id','explanation').html('&nbsp;').appendTo('#frame');
+            
+                //questions holder
+                $(document.createElement('ul')).attr('id', 'choice-block').appendTo('#frame');
+            
+                //add choices
+                addChoices(quiz[0]['choices']);
+            
+                //add submit button
+                $(document.createElement('div')).addClass('choice-box').attr('id', 'submitbutton').text('Check Answer').css({'font-weight':700,'color':'#222','padding':'30px 0'}).appendTo('#frame');
+            
+                setupButtons();
+            }
+        }
+        
+        init();
+    });
+    </script>
+    <style type="text/css" media="all">
+        /*css reset */
+        html,,div,span,h1,h2,h3,h4,h5,h6,p,code,small,strike,strong,sub,sup,b,u,i{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0;} 
+        article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;} 
+        body{line-height:1; font:normal 0.9em/1em "Helvetica Neue", Helvetica, Arial, sans-serif;} 
+      
+        strong{font-weight:700;}
+        #frame{max-width:620px;width:auto;border:1px solid #ccc;background:#fff;padding:10px;margin:3px;}
+        h1{font:normal bold 2em/1.8em "Helvetica Neue", Helvetica, Arial, sans-serif;text-align:left;border-bottom:1px solid #999;padding:0;width:auto}
+        h2{font:normal  1.3em/1.2em "Helvetica Neue", Helvetica, Arial, sans-serif;padding:0;text-align:center;margin:20px 0;}
+        p.pager{margin:5px 0 5px; font:bold 1em/1em "Helvetica Neue", Helvetica, Arial, sans-serif;color:#999;}
+        img.question-image{display:block;max-width:250px;margin:10px auto;border:1px solid #ccc;width:100%;height:auto;}
+        #choice-block{display:block;list-style:none;margin:0;padding:0;}
+        #submitbutton{background:#5a6b8c;}
+        #submitbutton:hover{background:#7b8da6;}
+        #explanation{margin:0 auto;padding:20px;width:75%;}
+        .choice-box{display:block;text-align:center;margin:8px auto;padding:10px 0;border:1px solid #666;cursor:pointer;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+    </style>
+</head>
+<body>
+    <div id="frame" role="content"></div>
+</body>
+</html>
